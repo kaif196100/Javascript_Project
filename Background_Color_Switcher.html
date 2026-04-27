@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>background changer</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 20px 100px;
+        }
+        h1{
+            text-align: center;
+            text-decoration: underline;
+        }
+        img {
+            width: 100%;
+            height: auto;
+            margin: 0 auto;
+        }
+        p{
+            font-size: 18px;
+            text-align: justify;
+        }
+        .btn{
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+            border: solid grey 2px;
+            cursor: pointer;
+        }
+        #white{
+            background-color: white;
+        }
+        #aquq{
+            background-color: aquamarine;
+        }
+        #violet{
+            background-color: #ce9aff;
+        }
+        #black{
+            background-color: black;
+        }
+        #color-switcher{
+            text-align: right;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="color-switcher">
+        <span class="btn" id="white" onclick="changeBG('#ffffff')"></span>
+        <span class="btn" id="aqua" onclick="changeBG('#7fffd4')"></span>
+        <span class="btn" id="violet" onclick="changeBG('#ce9aff')"> </span>
+        <span class="btn" id="black" onclick="changeBG('#000000')"> </span>
+    </div>
+    <h1 class="text">Abount Us</h1>
+    <img src="communication - Copy.jpg" alt="">
+    <p class="text">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        Laudantium nobis officiis dolorem sint nesciunt.
+        Velit esse officia porro ut, id aspernatur fugit dolor facere ullam,
+        quam nesciunt? Iusto aliquid, adipisci facere eum illum sed provident voluptas ut.
+        Facere distinctio excepturi, quas cupiditate accusamus harum doloribus sed iusto accusantium quod.
+        Consequuntur enim eos, rerum culpa ex corporis ducimus debitis quis deleniti voluptatem,
+        numquam dicta fugit atque ad delectus officia quia quae!
+        Autem sunt tempore dolorum quasi saepe excepturi ea soluta at vel.
+        Sit earum minus enim quas numquam nesciunt,
+        ab quam rem et alias impedit modi nobis quos odit beatae perspiciatis!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        Maxime necessitatibus deserunt maiores architecto aperiam molestias error commodi ex officia esse rerum doloremque tempora,
+        fugit, minima reiciendis similique incidunt impedit voluptatem aut.
+        Minus modi sit, numquam illo sapiente incidunt ducimus,
+        placeat itaque possimus pariatur amet odio unde odit corrupti! Fugit,
+        facilis!
+    </p>
+
+    <script>
+        function changeBG(color){
+            document.body.style.backgroundColor =color;
+            let txt = document.getElementsByClassName("text")
+            if(color == "#000000") {
+                for(let elm of txt) {
+                    elm.style.color = "white";
+                }
+            }else{
+                for(let elm of txt) {
+                    elm.style.color = "black";
+                }
+            }
+        }
+    </script>
+</body>
+</html>
