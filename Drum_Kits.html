@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Drum Kits</title>
+   <style>
+      body {
+         margin: 0;
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         height: 100vh;
+         justify-content: center;
+         background-color: pink;
+      }
+
+      h1 {
+         font-size: 50px;
+         font-family: 'Courier New', Courier, monospace;
+         letter-spacing: 4px;
+         color: white;
+         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+         white-space: nowrap;
+      }
+
+      .container {
+         text-align: center;
+      }
+
+      .btn {
+         padding: 30px 50px;
+         background-color: white;
+         border: none;
+         margin: 10px;
+         font-size: 30px;
+         min-width: 200px;
+         border-radius: 10px;
+         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+         background-image: url();
+         /*image*/
+         background-size: cover;
+         color: white;
+         font-family: cursive;
+         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+         cursor: pointer;
+         text-transform: capitalize;
+      }
+
+      .btn:hover {
+         color: pink;
+      }
+
+      .btn:active {
+         background-size: 105%;
+      }
+   </style>
+</head>
+
+<body>
+   <h1>Drum Kits <i class=""></i> </h1> <!--icon-->
+   <div class="container">
+
+   </div>
+
+   <script>
+      const kits = ["crash", "kick", "snare", "tom"];
+
+      const containerEl = document.querySelector(".container")
+
+      kits.forEach((kit) => {
+         const btnEl = document.createElement("button");
+         btnEl.classList.add("btn")
+         btnEl.innerText = kit;
+         btnEl.style.backgroundImage = "url(images/" + kit + ".png)"
+         containerEl.appendChild(btnEl);
+         const audioEl = document.createElement("audio");
+         audio.src = "sounds" + kit + ".mp3"  //sounds t
+         containerEl.appendChild(audioEl);
+         btnEl.addEventListener("click", () => {
+            audioEl.play();
+         });
+         window.addEventListener("keydown", (event) => {
+            if (event.key === kit.slice(0, 1)) {
+               audioEl.play();
+               btnEl.style.transform = "scale(0.9)";
+               setTimeout(() => {
+                  btnEl.style.transform = "scale(1)"
+               }, 100)
+            };
+         });
+      });
+   </script>
+
+</body>
+
+</html>
