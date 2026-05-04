@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Photos</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: wheat;
+        }
+
+        .image-container {
+            text-align: center;
+        }
+
+        .image-container img {
+            margin: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            background-color: lightgray;
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn {
+            background-color: slateblue;
+            border: none;
+            padding: 10px 20px;
+            margin: 20px;
+            color: white;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="image-container">
+        <img src="download.jfif" alt="">
+        <img src="download (1).jfif" alt="">
+        <img src="download (2).jfif" alt=""> <!--lorem photo link-->
+    </div>
+    <button class="btn">Load More</button>
+
+    <script>
+        const imageContainerEl = document.querySelector(".image-container")
+
+        const btnEl = document.querySelector(".btn");
+
+        btnEl.addEventListener("click", () => {
+            imageNum = 10;
+            addNewImage();
+        });
+
+        function addNewImage() {
+            for (let index = 0; index < imageNum; index++) {
+                const newImgEl = document.createElement("img")
+                newImgEl.src = ` ${Math.floor(Math.random() * 2000)}`;
+                imageContainerEl.appendChild(newImgEl);
+            }
+
+        }
+
+
+    </script>
+</body>
+
+</html>
