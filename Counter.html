@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            align-items: center;
+            padding: 2rem;
+            width: 300px;
+            box-shadow: 0 20px 30px rgba(0, 0, 0.12, 0.5);
+            width: 300px;
+        }
+
+        h1 {
+            font-size: 50px;
+            font-family: cursive;
+            color: blueviolet;
+            margin-left: 55px;
+        }
+
+        #value {
+            font-size: 60px;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 25px;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 10px 15px;
+            border: 2px solid #333;
+            border-radius: 5px;
+            background: #34495e;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s e;
+            text-transform: uppercase;
+        }
+
+        .btn:hover {
+            background: white;
+            color: black;
+
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div class="container">
+            <h1>
+                Counter
+            </h1>
+            <span id="value">0</span>
+            <div class="button-container">
+                <button class="btn decrease"> Decrease</button>
+                <button class="btn reset"> Reset</button>
+                <button class="btn increase"> Increase</button>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        //set initial count
+        let count = 0;
+
+        //select value and buttons
+        const value = document.querySelector('#value');
+        const btns = document.querySelectorAll('.btn');
+
+        btns.forEach(function (btn) {
+            btn.addEventListener('click', function (e) {
+                const style = e.currentTarget.classList;
+                if (style.contains('decrease')) {
+                    count--;
+                }
+                else if (style.contains('increase')) {
+                    count++;
+                }
+                else {
+                    count = 0;
+                }
+                if (count > 0) {
+                    value.style.color = "green";
+                }
+                if (count < 0) {
+                    value.style.color = 'red';
+                }
+                if (count === 0) {
+                    value.style.color = 'blueviolet';
+                }
+                value.textContent = count;
+            });
+        });
+    </script>
+</body>
+
+</html>
