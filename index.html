@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paragraph</title>
+    <style>
+        *{
+    margin: 0;
+    padding: 0;
+}
+body{
+    height: 100vh;
+    display: flex;
+    margin-top: 5rem;
+    justify-content: center;
+}
+.section-center{
+    width: 400px;
+    height: 100px;
+    box-shadow:  0 5px 15px rgba(0, 0, 0, 0.4);
+    padding: 1.5rem;
+    border-radius: 10px;
+}
+h3{
+    text-transform: uppercase;
+    color: #49a6e9;
+}
+.lorem-form{
+    text-transform: capitalize;
+    letter-spacing: 1px;
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+label{
+    font-size: 1.25rem;
+    color: red;
+}
+input{
+    padding: 0.25rem 0.5rem;
+    width: 4rem;
+    border-radius: 0.5rem;
+    border: none;
+    margin: 0 0.5rem;
+    font-size: 1.25rem;
+}
+button{
+    border-radius: 5px;
+    border: none;
+    padding: 10px 5px;
+    background: #49a6e9;
+    color: white;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+}
+.btn:hover{
+    background: transparent;
+    color: black;
+    border: 2px solid black;
+}
+.result{
+    margin-bottom: 2rem;
+}
+    </style>
+</head>
+<body>
+    <section class="section-center">
+        <h3>tired of boring lorem ipsum?</h3>
+        <form class="lorem-form">
+            <label for="amount">Paragraphs:</label>
+            <input type="number" name="amount" id="amount" placeholder="0"/>
+            <button type="submit" class="btn">Generate</button>
+        </form>
+        <article class="lorem-text"></article>
+    </section>
+
+    <script>
+        // lorem text 
+const text = [
+    `Lorem, ipsum dolor sit amet consectetur 
+    adipisicing elit. Tenetur ratione cumque, optio, 
+    natus nostrum explicabo molestiae sit impedit 
+    adipisci quisquam incidunt libero qui dolores 
+    debitis hic eaque eius nobis totam expedita `,
+    `illum! Tempore ipsam expedita, veritatis sequi incidunt
+    architecto non ducimus molestias atque nihil in,
+    dignissimos amet cumque, saepe accusantium porro.`,
+    ` Quisquam praesentium dolorem quo voluptatem est 
+    sit architecto repudiandae maiores accusantium nihil
+    dolorum, libero porro sequi perferendis quam quas 
+    repellat, saepe reiciendis. Labore veniam adipisci 
+    itaque! Cumque impedit quos inventore enim deserunt
+    doloribus alias quam perferendis eaque at dicta `,
+    `velit consequatur sunt officiis molestias facilis
+    voluptas vel, modi nemo odio laboriosam assumenda 
+    quae necessitatibus suscipit. Vitae fugiat tenetur 
+    ipsum. Fugiat magni enim repudiandae placeat? Deserunt 
+    necessitatibus ducimus ipsum saepe, placeat nisi facilis` ,
+    `vitae illo rem amet fugiat vero, excepturi nesciunt iure 
+    dolores commodi, dolore aspernatur adipisci cumque! 
+    Laboriosam, iure debitis eos cupiditate ipsum veritatis 
+    tempora non sit, eum rem atque ipsam vitae. Doloremque 
+    nostrum sapiente temporibus placeat ipsam possimus 
+    officiis at, totam atque suscipit quidem a tempore 
+    eius architecto velit. Unde distinctio, quia facere 
+    dicta non sint minus ipsam debitis vero modi fuga quis`, 
+    `consequatur earum est quibusdam dolorem quo? Earum, 
+    dolores! Eligendi quis, enim culpa error perspiciatis 
+    repellendus.`
+
+];
+
+const form = document.querySelector(".lorem-form");
+const amount = document.querySelector("#amount");
+const result = document.querySelector(".lorem-text");
+
+form.addEventListener('submit', function(e){
+    e.preventDefault();
+    const value = parseInt(amount.value);
+    const random = Math.floor(Math.random() * text.length);
+  
+    if(isNaN(value) || value <= 0 || value > 9){
+        result.innerHTML = `<p class="result"> ${text[random]}</p>`;
+    }
+    else{
+        let tempText = text.slice(0,value);
+        tempText = tempText.map(function(item){
+            return `<p class="result">${item}</p>`;
+        })
+        .join("")
+        result.innerHTML = tempText
+    }
+
+});
+    </script>
+   
+</body>
+</html>  
