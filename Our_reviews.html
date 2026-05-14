@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Reviews</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        body{
+    font-family: cursive;
+    background-color: #dff0fe;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.container{
+    width: 90vw;
+    max-width: 620px;
+    text-align: center;
+}
+
+.title{
+    margin-bottom: 0.5rem;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+}
+.underline{
+    width: 5rem;
+    height: 0.20rem;
+    background: #49a6e9;
+    margin: 0 auto 3rem auto;
+    border-radius: 50%;
+}
+.review{
+    background: #ffffff;
+    padding: 1.5rem 2rem;
+    border-radius: 25px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s linear;
+}
+.img-container{
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 0 auto 1.5rem auto;
+}
+#person-img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    position: relative;
+    z-index: 1;
+    
+}
+.img-container::before{
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: #49a6e9;
+    position: absolute;
+    top: -0.25rem;
+    right: -0.5rem;
+    border-radius: 50%;
+}
+#author{
+    margin-bottom: 0.25rem;
+    text-transform: capitalize;
+    letter-spacing: 2px;
+}
+#job{
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    color: #49a6e9;
+    font-size: 0.85rem;
+    font-weight: bold ;
+}
+#info{
+    margin-bottom: 0.75rem;
+    color: #617d98;
+    line-height: 1.5;
+}
+.button-container{
+    margin-bottom: 1rem;
+}
+.prev-btn, .next-btn{
+    color: #8bcbf9;
+    font-size: 2rem;
+    background: transparent;
+    border-color: transparent;
+    cursor: pointer;
+    margin: 0;
+    transition: all 0.3s linear;
+}
+.prve-btn, .next-btn{
+    color: #49a6e9;
+}
+
+.random-btn{
+    margin-top: 0.5rem;
+    background: #ebf7ff;
+    color: #49a6e9;
+    padding: 0.375rem 0.75rem;
+    text-transform: capitalize;
+    border-radius: 0.5rem;
+    transition: all 0.3s linear;
+    border-color: #49a6e9;
+    cursor: pointer;
+}
+.random-btn:hover{
+    background: #49a6e9;
+    color: #ffffff;
+}
+    </style>
+</head>
+
+<body>
+    <main>
+        <section class="container">
+            <!-- title -->
+            <div class="title">
+                <h2>our Reviews</h2>
+                <div class="underline"></div>
+            </div>
+            <!-- review -->
+            <article class="review">
+                <div class="img-container">
+                    <img src="images.jfif" id="person-img" alt="">
+                </div>
+                <h4 id="author">sara jones</h4>
+                <p id="job">ux designer</p>
+                <p id="info">Lorem ipsum dolor,
+                    sit amet consectetur adipisicing elit.
+                    Beatae voluptate eius blanditiis
+                    voluptatibus maxime nobis, labore quam
+                    praesentium esse commodi?</p>
+                <!-- prev next buttons -->
+                <div class="button-container">
+                    <button class="prev-btn">
+                        <i class="fa-solid fa-angle-left"></i>
+                    </button>
+                    <button class="next-btn">
+                        <i class="fa-solid fa-angle-right"></i>
+                    </button>
+                </div>
+                <!-- random button -->
+                <button class="random-btn">suprise me</button>
+            </article>
+        </section>
+    </main>
+
+    <script>
+        const reviews = [
+    {
+        id: 1,
+        name: "susan smith",
+        job: "web developer",
+        img: "https://randomuser.me/api/portraits/women/46.jpg",
+        text: "I'm baby megginge twee health goth +1. Bicycle rights tumeric chartreuse before they sold out chambray pop-up. Ghost messenger bag hammock, labor-affecting dreamcatcher selfies only."
+    },
+    {
+        id: 2,
+        name: "anna johnson",
+        job: "web designer",
+        img: "https://randomuser.me/api/portraits/women/44.jpg",
+        text: "Sriracha literally me chillwave brook. Flexitarian art party microdosing tumblr poutine iceland. Cray ugh 3 wolf moon street art, tote bag gluten-free try-hard chambray."
+    },
+    {
+        id: 3,
+        name: "peter jones",
+        job: "intern",
+        img: "https://randomuser.me/api/portraits/men/45.jpg",
+        text: "Helvetica intelligentsia try-hard kogi. Wayfarers keffiyeh PBR&B, authentic farm-to-table whatever poke. Scenester cred you probably haven't heard of them, vinyl craft beer blog."
+    }
+];
+
+// select items
+
+const img = document.getElementById("person-img");
+const author = document.getElementById("author");
+const job = document.getElementById("job");
+const info = document.getElementById("info");
+
+
+const prevBtn = document.querySelector(".prev-btn");
+const nextBtn = document.querySelector(".next-btn");
+const randomBtn = document.querySelector(".random-btn");
+
+//set starting item
+let currentItem = 0;
+
+//load intian item
+window.addEventListener("DOMContentLoaded", function (){
+    showPerson();
+});
+
+//show person based on item 
+function showPerson(){
+  const item = reviews[currentItem]
+    img.src = item.img;
+    author.textContent = item.name;
+    job.textContent = item.job;
+    info.textContent = item.text;
+}
+
+//show next person
+nextBtn.addEventListener("click", function () {
+    currentItem++;
+    if(currentItem > reviews.length - 1){
+        currentItem = 0;
+    }
+    showPerson();
+});
+//show prev person
+prevBtn.addEventListener("click", function () {
+    currentItem--;
+    if(currentItem < 0){
+        currentItem = reviews.length -1;
+    }
+    showPerson();
+});
+
+//show random person 
+randomBtn.addEventListener('click', function(){
+    currentItem = Math.floor(Math.random() * reviews.length);
+    console.log(currentItem);
+    showPerson();
+})
+
+    </script>
+</body>
+
+</html>
