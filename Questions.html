@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Question</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .title{
+            margin: 15vh;
+            margin-bottom: 4rem;
+        }
+        .title h2{
+            color: goldenrod;
+            font-family: cursive;
+            text-align: center;
+            font-size: 40px;
+        }
+        .section-center{
+            max-width: 1170px;
+        }
+        .question{
+            background: #fff;
+            border-radius: 0.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            padding: 1.5rem 1.5rem 0 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .question-title{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-transform: capitalize;
+            padding-bottom: 1rem;
+        }
+        .question-title p {
+            margin-bottom: 0;
+            letter-spacing: 0.25rem;
+            color: rgb(77, 72, 72);
+        }
+        .question-btn{
+            font-size: 1.5rem;
+            background: transparent;
+            border-color: transparent;
+            cursor: pointer;
+            color: black;
+            transition: all 0.3s linear;
+            margin-left: auto;
+        }
+        .question-text{
+            padding: 1px 0 1.5rem 0;
+            border-top: 1px solid rgba(0, 0, 0, 0.2);
+        }
+        .question.show-text .question-text{
+            height: auto;
+            padding: 1.5rem 0;
+        }
+        .question-text p {
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="questions">
+        <!-- title -->
+        <div class="title">
+            <h2>general questions</h2>
+        </div>
+        <!-- questions -->
+        <div class="section-center">
+            <!-- single question -->
+            <article class="question">
+                <!-- question title -->
+                <div class="question-title">
+                    <p>do you accept all major credit cards ?</p>
+                    <button type="button" class="question-btn">
+                        <span class="plus-icon">
+                            <i class="fa-solid fa-square-plus"></i>
+                        </span>
+                        <span class="minus-icon">
+                            <i class="fa-solid fa-square-minus"></i>
+                        </span>
+                    </button>
+                </div>
+                <!-- question text -->
+                <div class="question-text">
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Distinctio doloribus ipsa at
+                        laboriosam, beatae debitis voluptas repellat aspernatur consequatur! Inventore!</p>
+                </div>
+            </article>
+            <!-- single question -->
+            <article class="question">
+                <!-- question title -->
+                <div class="question-title">
+                    <p>do you Use Organicn Ingredients ?</p>
+                    <button type="button" class="question-btn">
+                        <span class="plus-icon">
+                            <i class="fa-solid fa-square-plus"></i>
+                        </span>
+                        <span class="minus-icon">
+                            <i class="fa-solid fa-square-minus"></i>
+                        </span>
+                    </button>
+                </div>
+                <!-- question text -->
+                <div class="question-text">
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Distinctio doloribus ipsa at
+                        laboriosam, beatae debitis voluptas repellat aspernatur consequatur! Inventore!</p>
+                </div>
+            </article>
+            <!-- single question -->
+            <article class="question">
+                <!-- question title -->
+                <div class="question-title">
+                    <p>do you Support Local Farmers ?</p>
+                    <button type="button" class="question-btn">
+                        <span class="plus-icon">
+                            <i class="fa-solid fa-square-plus"></i>
+                        </span>
+                        <span class="minus-icon">
+                            <i class="fa-solid fa-square-minus"></i>
+                        </span>
+                    </button>
+                </div>
+                <!-- question text -->
+                <div class="question-text">
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Distinctio doloribus ipsa at
+                        laboriosam, beatae debitis voluptas repellat aspernatur consequatur! Inventore!</p>
+                </div>
+            </article>
+            <!-- end single question -->
+        </div>
+    </section>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
