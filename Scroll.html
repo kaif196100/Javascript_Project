@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        
+*{
+    margin: 0;
+    padding: 0;
+}
+
+nav{
+    background: #fff;
+    padding: 1rem 1.5rem;
+}
+.fixed-nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+.fixed-nav .links a{
+    color: gray;
+}
+.fixed-nav, .links a:hover{
+    color: #49a5;
+}
+.nav-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.nav-toggle{
+    font-size: 1.5rem;
+    color: gray;
+    background: transparent;
+    border-color: transparent;
+    cursor: pointer;
+    transition: all 0.3s linear;
+}
+.nav-toggle:hover{
+    color: #49a5;
+}
+
+.logo{
+    width: auto;
+    height: 50px;
+}
+.links-container{
+    height: 0;
+    overflow: hidden;
+    transition: all 0.3s linear;
+}
+.show-links{
+    height: 200px;
+}
+/* .scroll-link{
+    height: 200px;
+} */
+.scroll-link{
+    text-decoration: none;
+}
+
+.links  {
+    list-style-type: none;
+}
+.links a {
+    background: #fff;
+    color: gray;
+    font-size: 1.1rem;
+    text-transform: capitalize;
+    letter-spacing: 0.1rem;
+    display: block;
+    transition: all 0.3s linear;
+    font-weight: bold;
+    padding: 0.75rem 0;
+}
+.links a:hover{
+    color: gray;
+}
+
+@media screen and(min-width:800px) {
+    nav{
+        background: transparent;
+    }
+    .nav-center{
+        width: 90vw;
+        max-width: 1170px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .nav-header{
+        padding: 0;
+
+    }
+    .nav-toggle{
+        display: none;
+    }
+    .links-container{
+        height: auto !important;
+    }
+    .links{
+        display: flex;
+    }
+    .links a {
+        background: transparent;
+        color: #fff;
+        font-size: 1.1rem;
+        text-transform: capitalize;
+        letter-spacing: 1rem;
+        display: block;
+        transition: all 0.3s linear;
+        margin: 0 1rem;
+        font-weight: bold;
+        padding: 0;
+    }
+    .links a:hover{
+        color: #fff;
+    }
+}
+header{
+    min-height: 100vh;
+    background: linear-gradient(rgba(210, 238, 240, 0.5),rgba(0, 0, 0, 0.7)),url(desktop.avif) center/cover no-repeat;
+}
+.banner{
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    text-align: center;
+}
+.container h1{
+    color: #fff;
+    text-transform: uppercase;
+}
+.container p {
+    color: #fff;
+    max-width: 25rem;
+    margin: 0 auto;
+    margin-bottom: 1.25rem;
+}
+@media screen and(min-width:768px){
+    .container p{
+        max-width: 40rem;
+    }
+}
+.title h2{
+    text-align: center;
+    text-transform: uppercase;
+}
+.title span{
+    color: #5f3e5f;
+}
+#about,#services,#tours{
+    height: 80vh;
+}
+#services{
+    background: #fff;
+}
+footer{
+    background: rgb(37, 35, 35);
+    padding: 5rem 1rem;
+}
+footer p {
+    color: #fff;
+    text-align: center;
+    text-transform: capitalize;
+    letter-spacing: 0.1rem;
+    margin-bottom: 0;
+}
+.top-link{
+    font-size: 1.25rem;
+    position: fixed;
+    bottom: 3rem;
+    right: 3rem;
+    background: #49a5;
+    width: 2rem;
+    height: 2rem;
+    display: grid;
+    place-items: center;
+    border-radius: 5px;
+    color: #fff;
+    animation: bounce 2s ease-in-out infinite;
+    visibility: hidden;
+    z-index: -100;
+}
+.show-link{
+    visibility: visible;
+    z-index: 100;
+}
+@keyframes bounce {
+    0%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1.5);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+    </style>
+</head>
+
+<body>
+    <!-- header -->
+    <header id="home">
+        <!-- navber -->
+        <nav id="nav">
+            <div class="nav-center">
+                <!-- nav header -->
+                <div class="nav-header">
+                    <img src="logo.svg" alt="logo" class="logo">
+                    <button class="nav-toggle">
+                        <i class="fa-sharp fa-solid fa-bars"></i>
+                    </button>
+                </div>
+                <!-- link -->
+                <div class="links-container">
+                    <ul class="links">
+                        <li>
+                            <a href="#home" class="scroll-link">Home</a>
+                        </li>
+                        <li>
+                            <a href="#about" class="scroll-link">About</a>
+                        </li>
+                        <li>
+                            <a href="#services" class="scroll-link">Services</a>
+                        </li>
+                        <li>
+                            <a href="#tours" class="scroll-link">Tours</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- banner -->
+        <div class="banner">
+            <div class="container">
+                <h1>Scroll Project</h1>
+                <p>Lorem ipsum dolor sit amet consectetur
+                    adipisicing elit. Omnis qui reprehenderit
+                    tempore, suscipit quis modi cum ducimus
+                    libero sunt quae?
+                </p>
+                <a href="#tours" class="scroll-link btn btn-white">explore tours</a>
+            </div>
+        </div>
+    </header>
+    <!-- about -->
+    <section id="about" class="section">
+        <div class="title">
+            <h2>about <span>us</span></h2>
+        </div>
+    </section>
+    <!-- services-->
+    <section id="services" class="section">
+        <div class="title">
+            <h2>Our <span>services</span></h2>
+        </div>
+    </section>
+    <!-- tourn -->
+    <section id="tours" class="section">
+        <div class="title">
+            <h2>featured <span>tourn</span></h2>
+        </div>
+    </section>
+    <!-- footer -->
+    <footer class="section">
+        <p>
+            copyright &copy; backroads trave tours company <span id="date">
+
+            </span>
+            .All rights reserved
+        </p>
+    </footer>
+    <!-- back to top button -->
+    <a href="#home" class="scroll-link top-link">
+        <i class="fa-solid fa-arrow-up"></i>
+    </a>
+    <script>
+        // set date
+
+const date = document.getElementById("date")
+date.innerHTML = new Date().getFullYear();
+// close links
+
+const navToggle = document.querySelector(".nav-toggle");
+const linksContainer = document.querySelector(".links-container");
+const links = document.querySelector(".links");
+
+navToggle.addEventListener("click", function(){
+    // linksContainer.classList.toggle("show-links");
+    const containerHeight = linksContainer.getBoundingClientRect().height;
+    const linksHeight = links.getBoundingClientRect().height;
+
+    if(containerHeight === 0 ){
+        linksContainer.style.height = `${linksHeight}px`
+    }else{
+        linksContainer.style.height = 0;
+    }
+});
+
+const navbar = document.getElementById("nav");
+const topLink = document.querySelector(".top-link");
+// fixed navbar
+window.addEventListener("scroll", function(){
+    const scrollHeight = window.pageYOffset;
+    const navHeight = navbar.getBoundingClientRect().height;
+ if (scrollHeight > navHeight){
+    navbar.classList.add("fixed-nav");
+ }else{
+    navbar.classList.remove("fixed-nav");
+ }
+ if (scrollHeight > 500){
+    topLink.classList.add("show-link");
+ }else{
+    topLink.classList.remove("show-link");
+ }
+});
+// smooth scroll
+
+//select links
+const scrollLinks = document.querySelectorAll(".scroll-link");
+
+
+scrollLinks.forEach(function(link){ // link Galti
+ link.addEventListener("click", function(e){
+   //prevent default
+   e.preventDefault();
+   //navigate to specific spot
+   const id = e.currentTarget.getAttribute("href").slice(1);
+   const element = document.getElementById(id);
+   // calculate the heights
+   const navHeight = navbar.getBoundingClientRect().height;
+   const containerHeight = linksContainer.getBoundingClientRect().height
+   const fixedNav = navbar.classList.contains("fixed-nav");
+   let position = element.offsetTop - navHeight;
+
+   if(!fixedNav){
+      position = position - navHeight;
+   }
+   if(navHeight > 82){
+      position = position + containerHeight
+   }
+window.scrollTo({
+   left:0,
+   top: position,
+});
+linksContainer.style.height = '0';
+ });
+});
+
+
+    </script>
+</body>
+
+</html>
