@@ -1,191 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Navbar Project</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
-        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-   <style>
-    /* --- Basic Reset --- */
-* {
-    margin: 0;
-    padding: 0;
-} 
-nav {
-    background: #fff;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1)
-}
-.nav-header{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem;
-}
-.nav-toggle{
-    font-size: 1.5rem;
-    color: #102a42;
-    background: transparent;
-    border-color: transparent;
-    transition: all 0.3s linear;
-    cursor: pointer;
-}
-.nav-toggle:hover{
-    color: #81c0ec;
-    transform: rotate(90deg);
-}
-.logo{
-    height: 50px;
-    width: auto;
-}
-.link {
-    list-style-type: none;
-}
-.link a{
-    text-decoration: none;
-    margin: 0 10px;
-}
-.social-icons {
-    list-style-type: none;
-}
-.link a {
-    color: #102a42;
-    font-size: 1rem;
-    text-transform: capitalize;
-    letter-spacing: 0.1rem;
-    display: block;
-    padding: 0.5rem 1rem;
-    transition: all 0.3s linear;
-}
-.link a:hover{
-    background: #81c0ec;
-    color: #102a42;
-    padding-left: 1.5rem;
-}
-.social-icons{
-    display: none;
-}
-.link{
-    height: 0;
-    overflow: hidden;
-    transition: all 0.3s linear;
-}
-.show-link{
-    height: 10rem;
-}
-
-@media screen and (max-width: 800px) {
-    .nav-center{
-        max-width: 1170px;
-        margin: 0 auto;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 1rem;
-    }
-    .nav-header{
-        padding: 0;
-    }
-    .nav-toggle{
-        display: none;
-    }
-    .link{
-        height: auto;
-        display: flex;
-    }
-    .link a{
-        padding: 0;
-        background: transparent;
-    }
-    .link a:hover{
-        padding: 0;
-        background: transparent;
-    }
-    .social-icons{
-        display: flex;
-    }
-    .social-icons a {
-        margin: 0 0.5rem;
-        color: #49a6e9;
-        transition: 0 5px 15px rgba(0, 0, 0, 0.1);
-    }
-    .social-icons a:hover{
-        color: #102a42;
-    }
-}        
-   </style>
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0px;
+        }
+        #header{
+            text-align: center;
+        }
+        #logo{
+            width: 250px;
+            height: auto;
+        }
+        #menu-bar{
+            text-align: center;
+            background-color: cadetblue;
+        }
+        #menu-bar li{
+            display: inline-block;
+            padding: 15px 10px;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        #contaiiner{
+            text-align: center;
+            padding: 50px 100px;
+        }
+        #about-img{
+            width: 100%;
+            
+        }
+        .sticky{
+            position: fixed;
+            top: 0;
+            width: 100%;
+        }
+    </style>
 </head>
-
 <body>
-    <nav>
-        <div class="nav-center">
-            <!-- nav header -->
-            <div class="nav-header">
-                <img src="download.jfif" class="logo" alt="logo">
-                <button class="nav-toggle">
-                    <i class="fa-solid fa-bars"></i>
-                </button>
-            </div>
-            <!-- link -->
-            <ul class="link">
-                <li>
-                    <a href="index.html">home</a>
-                </li>
-                <li>
-                    <a href="about.html">about</a>
-                </li>
-                <li>
-                    <a href="project.html">projects</a>
-                </li>
-                <li>
-                    <a href="contect.html">contect</a>
-                </li>
-            </ul>
-            <!-- social -->
-            <ul class="social-icons">
-                <li>
-                    <a href="https://www.twitter.com">
-                        <i class="fa-brands fa-facebook"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="https://www.twitter.com">
-                        <i class="fa-brands fa-linkedin"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="https://www.twitter.com">
-                        <i class="fa-brands fa-google"></i>
-                    </a>
-                </li>
-            </ul>
-        </div> 
+    <div id="header">
+         <img src="bird.avif"  id="logo" alt="" >  <!--logo-->
+    </div>
+    <nav id="menu-bar" class="sticky">
+        <li>Home</li>
+        <li>About</li>
+        <li>Our team</li>
+        <li>Client</li>
+        <li>Contact Us</li>
     </nav>
+    <div id="container">
+        <h1>About Us</h1>
+        <img id="about-img" src="communication - Copy.jpg" alt="">
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+             Repellendus assumenda illum laboriosam eaque odit ex,
+              iste ipsum a delectus rerum suscipit repellat 
+              cumque nulla accusantium maiores exercitationem harum
+               aliquam autem! Beatae alias amet veniam, 
+               fugiat pariatur at reprehenderit adipisci
+                temporibus eum provident iure commodi deserunt
+                 excepturi modi, sunt esse molestias soluta fugit
+                  optio veritatis obcaecati perferendis dicta in.
+                   Qui veritatis quisquam libero perspiciatis sapiente
+                    delectus ea iusto quod saepe assumenda, eligendi 
+                    atque facere modi dicta deserunt magnam cumque 
+                    minus nulla laudantium eaque consequatur quos
+                     natus recusandae ipsum. Autem, voluptas recusandae 
+                     ea at expedita magnam quaerat eligendi eaque quia
+           beatae commodi!</p>
+    </div>
 
     <script>
-        //classList = shows/gets all classes
-//contains = checks classList for specific class
-//add = add class
-//toggle = toggles class
-
-const navToggle = document.querySelector(".nav-toggle");
-const links = document.querySelector(".link");
-
-navToggle.addEventListener("click", function(){
-    //console.log(links.classList);
-    //console.log(links.classList.contains("random"));
-    //console.log(links.classList.containes("links"));
-    // if (links.classList.contains("show-links")) {
-    //     links.classList.remove("show-links");
-    // }else{
-    //     links.classList.add("show-links");
-    // }
-
-    links.classList.toggle("show-link");
-})
+        window.addEventListener('scroll', function(){
+            let navbar = document.getElementById("menu-bar");
+            if(window.pageYOffset >= 190){
+                navbar.classList.add('sticky');
+            }else{
+                navbar.classList.remove('sticky');
+            }
+        })
     </script>
 </body>
 </html>
