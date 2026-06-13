@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tab</title>
+    <style>
+        *{
+    margin: 0;
+    padding: 0;
+}
+body{
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+    background-color: rgb(187, 220, 240);
+    color: darkblue;
+    margin-top: 40px;
+}
+
+/* .title h2{
+    font-size: 40px;
+} */
+.title {
+    margin-bottom: 4rem;
+    text-align: center;
+}
+.title p{
+    width: 80%;
+    margin: 0 auto;
+}
+.about-img{
+   margin-bottom: 2rem;
+}
+.about-img img{
+    border-radius: 20px;
+    height: 20rem;
+    object-fit: cover;  
+}
+@media  screen and (min-width: 820px) {
+    .about-img{
+        margin-bottom: 0;
+    }
+    .abuot-center{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 2rem;
+    }
+}
+.about{
+    background: #fff;
+    border-radius: 10px;
+    display: grid;
+    grid-template-rows: auto 1fr;
+}
+.btn-container{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.tab-btn:nth-child(1){
+    border-top-left-radius: 10px;
+}
+.tab-btn:nth-child(3){
+    border-top-right-radius: 10px;
+}
+.tab-btn{
+    padding: 1rem 0;
+    border: none;
+    text-transform: capitalize;
+    font-size: 1rem;
+    display: bolck;
+    background: gray;
+    cursor: pointer;
+    transition: all 0.3s linear;
+    letter-spacing: 0.5px;
+}
+.about-content{
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 2rem 1.5rem;
+}.tab-btn:hover:not(.active){
+    background: rgba(210, 36, 96);
+    color: #49a6e9;
+}
+.content{
+    display: none;
+}
+.tab-btn.active{
+    background: #fff;
+}
+.content.active{
+    display: block;
+}
+    </style>
+</head>
+
+<body>
+    <section class="section">
+        <div class="title">
+            <h2>about</h2>
+            <p>
+                Lorem ipsum dolor sit amet consectetur
+                adipisicing elit. Rem, eos rerum? Autem
+                molestias perferendis beatae.
+            </p>
+        </div>
+        <div class="about-center section-center">
+            <article class="about-img">
+                <img src="desktop.avif" alt="about picture">
+            </article>
+            <article class="about">
+                <!-- btn container -->
+                <div class="btn-container">
+                    <button class="tab-btn active" data-id="history">history</button>
+                    <button class="tab-btn" data-id="vision">vision</button>
+                    <button class="tab-btn" data-id="goal">goal</button>
+                </div>
+                 <article class="about-content">
+                <!-- single item -->
+                <div class="content active" id="history">
+                    <h4>history</h4>
+                    <!-- history -->
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi est voluptatibus omnis
+                        praesentium ipsam vitae excepturi dolor quis! Eveniet labore necessitatibus accusamus asperiores
+                        ab aliquid repellendus neque ipsa minima nulla.
+                    </p>
+                </div>
+                <!-- end of single item -->
+                <!-- single item -->
+                <div class="content " id="vision">
+                    <h4>vision</h4>
+                    <!-- vision -->
+                    <p>
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure numquam blanditiis architecto
+                        quidem placeat at consectetur, veniam dolorem nostrum aliquid fugit vitae ab temporibus illum
+                        optio qui voluptate maxime accusamus!
+                    </p>
+                    <ul>
+                        <li>list item</li>
+                        <li>list item</li>
+                        <li>list item</li>
+                    </ul>
+                </div>
+                <!-- end of single item -->
+                <!-- single item -->
+                <div class="content" id="goal">
+                    <h4>goal</h4>
+                    <!-- goal -->
+                    <p>
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum aut reiciendis dicta deserunt
+                        officia ipsum, neque rerum commodi cum explicabo eum atque quasi. Tenetur suscipit placeat,
+                        illum quo consequuntur iusto!
+                    </p>
+                </div>
+                <!-- end of single item -->
+            </article>
+            </article>
+        </div>
+    </section>
+    <script>
+        const btns = document.querySelectorAll(".tab-btn");
+const about = document.querySelector(".about");
+const articles = document.querySelectorAll(".content");
+
+about.addEventListener("click", function (e) {
+    const id = e.target.dataset.id;
+    if (id) {
+        //remove active from other buttons
+        btns.forEach(function (btn) {
+            btn.classList.remove("active");
+           
+        });
+         e.target.classList.add("active");
+        //hide other articles
+        articles.forEach(function (article) {
+            article.classList.remove("active");
+        })
+        const element = document.getElementById(id);
+        element.classList.add("active");
+    }
+});
+    </script>
+</body>
+
+</html>
