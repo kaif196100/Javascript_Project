@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RGB color Slider</title>
+    <style>
+        
+       body{
+        background-color: #333;
+       }
+       .container{
+        background-color: #ffffff;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        top: 50%;
+        left: 50%;
+        width: 350px;
+        padding: 20px 5px;
+        box-shadow: 10px 20px 35px rgba(0, 0, 0, 0.5);
+        border-radius: 2rem;
+        font-size:  1.5rem;
+        display: grid;
+        justify-items: center;
+       }
+       .wrapper{
+        width: 100%;
+        text-align: center;
+       }
+       input{
+        width: 16rem;
+        display: inline-block;
+        margin-top: 15px;
+        margin-left: 15px;
+       }
+       span{
+        display: inline-block;
+        margin-top: 10px;
+        text-align: center;
+        background-color: #9ccee7;
+        color: #fff;
+        padding: 10px 15px;
+        letter-spacing: 2px;
+        border-radius: 20px;
+       }
+       
+    </style>
+</head>
+<body>
+   <div class="container">
+    <div class="wrapper">
+        R <input type="range" min='0' max="255" value="0" id="red"
+        oninput="colors()">
+    </div>
+    <div class="wrapper">
+        G <input type="range" min='0' max="255" value="0" id="green"
+        oninput="colors()">
+    </div> 
+    <div class="wrapper">
+        B<input type="range" min='0' max="255" value="0" id="blue"
+        oninput="colors()">
+    </div> 
+    <span id="output">rgb(0, 0, 0)</span>
+   </div>
+
+   <script>
+    function colors(){
+        var red = document.getElementById("red").value;
+        var green = document.getElementById("green").value;
+        var blue = document.getElementById("blue").value;
+        document.body.style.backgroundColor = 'rgb(' + red +',' + green + ',' + blue + ')';
+        document.getElementById("output").innerHTML = 'rgb(' + red +',' + green + ',' + blue + ')'
+    }
+   </script>
+</body>
+</html>
