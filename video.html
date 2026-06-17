@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>video Project</title>
+    <style>
+        .preloader{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #fff;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    visibility: visible;
+    z-index: 999;
+    transition: all 0.3s linear;
+}
+.hide-preloader{
+    z-index: -999;
+    visibility: hidden;
+}
+header{
+    min-height: 100vh;
+    position: relative;
+    display: grid;
+    place-items: center;
+}
+.video-container{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+
+h1 {
+    color: #fff;
+}
+.switch-btn{
+    position: absolute;
+    bottom: 7%;
+    left: 7%;
+    width: 7rem;
+    height: 2rem;
+    display: flex;
+    border-radius: 0.5rem;
+    align-items: center;
+    justify-content: space-between;
+    border: none;
+    transition: all 0.3s linear;
+}
+.switch-btn span{
+    display: inline-block;
+    font-size: 0.85rem;
+    cursor: pointer;
+    text-transform: capitalize;
+    color: #49a6e9;
+}
+.switch{
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: #49a6e9;
+    border-radius: 0.5rem;
+    margin: 0;
+    display: block;
+    transition: all 0.3s linear;
+}
+.slide .switch{
+    left: 50%;
+}
+header::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: -1;
+}
+    </style>
+</head>
+<body>
+    <!-- preloader -->
+     <div class="preloader">
+        <img src="preloader.gif" alt="preloader">
+     </div>
+    <!-- header -->
+    <header>
+        <video class="video-container" controls muted autoplay loop>
+            <source src="video.mp4" type="">
+        </video>
+        <h1>video project </h1>
+        <!-- video switch -->
+         <button class="switch-btn">
+            <span>play</span>
+            <span>pause</span>
+            <span class="switch"> </span>
+         </button>
+    </header>
+    
+    <script>
+        const btn = document.querySelector(".switch-btn");
+const video = document.querySelector(".video-container");
+
+btn.addEventListener('click', function(){
+    if(!btn.classList.contains('slide')){
+        btn.classList.add('slide');
+        video.pause();
+    } else{
+        btn.classList.remove("slide");
+        video.play();
+    }
+});
+
+// perloader
+const preloader = document.querySelector(".preloader");
+
+window.addEventListener('load', function(){
+    preloader.classList.add("hide-preloader");
+});
+    </script>
+</body>
+</html>
